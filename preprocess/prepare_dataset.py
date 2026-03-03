@@ -1,3 +1,6 @@
+# Dataset preparation script that loads text files organized by category folders,
+# encodes labels, performs train/test split (85/15), and exports as CSV files
+# with 'question' and 'answer' columns for downstream model training.
 from pathlib import Path
 from datasets import Dataset, DatasetDict
 from datasets import ClassLabel
