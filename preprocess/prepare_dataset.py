@@ -6,8 +6,8 @@ from datasets import Dataset, DatasetDict
 from datasets import ClassLabel
 from collections import Counter
 
-INPUT_DIR = "./datasets/dirty_datasetv1"
-OUTPUT_DIR = "./datasets/prepared/dirty_datasetv1"
+INPUT_DIR = "./datasets/dirty_dataset"
+OUTPUT_DIR = "./datasets/prepared/dirty_dataset"
 
 
 def load_texts_with_labels(base_dir="dataset"):

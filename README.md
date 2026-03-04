@@ -6,3 +6,5 @@ Step 2: prepare_dataset, outputs to ./prepared for train-test split in csv forma
 
 Step 3: Pass to precompute_data for the novel train set.
 
+* dirty_datasetv1 has some cleaning (most essential) done.
+* dirty_dataset has no cleaning done.
