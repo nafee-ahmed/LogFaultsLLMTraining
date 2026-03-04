@@ -11,6 +11,7 @@ Format example:
 <think>reasoning here</think>\n\\boxed{C1}
 """
 
+
 def analyze_dataset_lengths(dataset):
     tokenizer = AutoTokenizer.from_pretrained("unsloth/Qwen2.5-7B-Instruct")
 
@@ -18,10 +19,12 @@ def analyze_dataset_lengths(dataset):
     output_lengths = []
 
     for sample in dataset:
-        input_len = len(tokenizer.encode(
-            SYSTEM_PROMPT + sample["question"], add_special_tokens=True))
-        output_len = len(tokenizer.encode(
-            sample["answer"], add_special_tokens=True))
+        input_len = len(
+            tokenizer.encode(
+                SYSTEM_PROMPT + sample["question"], add_special_tokens=True
+            )
+        )
+        output_len = len(tokenizer.encode(sample["answer"], add_special_tokens=True))
 
         input_lengths.append(input_len)
         output_lengths.append(output_len)
@@ -37,13 +40,18 @@ def analyze_dataset_lengths(dataset):
 
     print("=== Dataset Token Analysis ===")
     print(
-        f"Input (question) tokens: max={max_input_len}, mean={mean_input_len}, 95th percentile={p95_input_len}")
+        f"Input (question) tokens: max={max_input_len}, mean={mean_input_len}, 95th percentile={p95_input_len}"
+    )
     print(
-        f"Output (answer) tokens: max={max_output_len}, mean={mean_output_len}, 95th percentile={p95_output_len}")
+        f"Output (answer) tokens: max={max_output_len}, mean={mean_output_len}, 95th percentile={p95_output_len}"
+    )
+
 
 if __name__ == "__main__":
     # train_telelogs = load_dataset("csv", data_files="dataset/zindi/train.csv", split="train")
-    col_shuffle_telelogs = load_dataset("csv", data_files="datasets/combined/dirty_datasetv1.csv", split="train")
+    col_shuffle_telelogs = load_dataset(
+        "csv", data_files="datasets/combined/dirty_datasetv3.csv", split="train"
+    )
 
     print(len(col_shuffle_telelogs))
     analyze_dataset_lengths(col_shuffle_telelogs)
